@@ -7,6 +7,7 @@
 //
 
 #import "RecipeDetailViewController.h"
+#import "RARecipes.h"
 
 @interface RecipeDetailViewController ()
 
@@ -17,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.title = [RARecipes titleAtIndex:self.recipeIndex];
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:scrollView];
