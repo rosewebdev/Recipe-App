@@ -20,6 +20,7 @@
 		71F67B74192C8D6A00E609F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71F67B72192C8D6A00E609F1 /* InfoPlist.strings */; };
 		71F67B76192C8D6A00E609F1 /* Recipe_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F67B75192C8D6A00E609F1 /* Recipe_AppTests.m */; };
 		82BE37301AD31DA800F1D6D0 /* RecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BE372F1AD31DA800F1D6D0 /* RecipeViewController.m */; };
+		82BE37331AD31F8300F1D6D0 /* RARecipes.m in Sources */ = {isa = PBXBuildFile; fileRef = 82BE37321AD31F8300F1D6D0 /* RARecipes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		71F67B75192C8D6A00E609F1 /* Recipe_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Recipe_AppTests.m; sourceTree = "<group>"; };
 		82BE372E1AD31DA800F1D6D0 /* RecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeViewController.h; sourceTree = "<group>"; };
 		82BE372F1AD31DA800F1D6D0 /* RecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeViewController.m; sourceTree = "<group>"; };
+		82BE37311AD31F8300F1D6D0 /* RARecipes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RARecipes.h; sourceTree = "<group>"; };
+		82BE37321AD31F8300F1D6D0 /* RARecipes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RARecipes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 				71F67B60192C8D6A00E609F1 /* RAAppDelegate.m */,
 				82BE372E1AD31DA800F1D6D0 /* RecipeViewController.h */,
 				82BE372F1AD31DA800F1D6D0 /* RecipeViewController.m */,
+				82BE37311AD31F8300F1D6D0 /* RARecipes.h */,
+				82BE37321AD31F8300F1D6D0 /* RARecipes.m */,
 				71F67B62192C8D6A00E609F1 /* Images.xcassets */,
 				71F67B57192C8D6A00E609F1 /* Supporting Files */,
 			);
@@ -245,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82BE37331AD31F8300F1D6D0 /* RARecipes.m in Sources */,
 				71F67B5D192C8D6A00E609F1 /* main.m in Sources */,
 				71F67B61192C8D6A00E609F1 /* RAAppDelegate.m in Sources */,
 				82BE37301AD31DA800F1D6D0 /* RecipeViewController.m in Sources */,
