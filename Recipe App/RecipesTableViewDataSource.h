@@ -10,4 +10,8 @@
 
 @interface RecipesTableViewDataSource : NSObject <UITableViewDataSource>
 
+- (void)registerTableView:(UITableView *)tableView;
+
+-(CGFloat)heightForIndexPath:(NSIndexPath *)indexPath;
+
 @end

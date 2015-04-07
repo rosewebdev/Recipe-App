@@ -13,6 +13,11 @@ static NSString * const cellIdentifier = @"identifier";
 
 @implementation RecipesTableViewDataSource
 
+-(void)registerTableView:(UITableView *)tableView {
+    
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifier];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [RARecipes count];
 }
@@ -24,7 +29,13 @@ static NSString * const cellIdentifier = @"identifier";
     return cell;
 }
 
+-(CGFloat)heightForIndexPath: (NSIndexPath *)indexPath {
+    return 44;
+}
 
+-(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    return @"Recipe.com";
+}
 
 
 @end

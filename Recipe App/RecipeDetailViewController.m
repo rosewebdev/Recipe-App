@@ -21,6 +21,7 @@ static CGFloat margin = 15;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.view.backgroundColor = [UIColor whiteColor];
     self.title = [RARecipes titleAtIndex:self.recipeIndex];
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
@@ -43,12 +44,48 @@ static CGFloat margin = 15;
     
     top += 20 + margin;
     
+    for (int i = 0; i < [RARecipes ingredientCountAtIndex:self.recipeIndex]; i++) {
+        UILabel *volume = [[UILabel alloc]initWithFrame:CGRectMake(margin, top, (self.view.frame.size.width - 2 * margin) /4, 20)];
+        volume.font = [UIFont boldSystemFontOfSize:17];
+        volume.text = [RARecipes ingredientVolumeAtIndex:i inRecipeAtIndex:self.recipeIndex];
+        [scrollView addSubview:volume];
+        
+        UILabel *type = [[UILabel alloc] initWithFrame:CGRectMake(margin + (self.view.frame.size.width - 2 * margin) / 4, top, (self.view.frame.size.width - 2 * margin) * 3 / 4, 20)];
+        type.numberOfLines = 0;
+        type.font = [UIFont systemFontOfSize:15];
+        type.text = [RARecipes ingredientTypeAtIndex:i inRecipeAtIndex:self.recipeIndex];
+        [scrollView addSubview:type];
+        
+        top += (20 + margin);
+    }
+    top += margin;
+    
     UILabel *directionsTitle = [[UILabel alloc] initWithFrame:CGRectMake(margin, top, self.view.frame.size.width - 2 * margin, 20)];
     directionsTitle.text = @"Directions";
     directionsTitle.font = [UIFont boldSystemFontOfSize:17];
     [scrollView addSubview:directionsTitle];
     
     top += 20 + margin;
+    
+    for (int i = 0; i < [[RARecipes directionsAtIndex:self.recipeIndex] count]; i++) {
+        
+        CGFloat height = [self heightForDirections:[RARecipes directionsAtIndex:self.recipeIndex][i]];
+        
+        UILabel *count = [[UILabel alloc] initWithFrame:CGRectMake(margin, top, 30, 20)];
+        count.font = [UIFont boldSystemFontOfSize:17];
+        count.text = [NSString stringWithFormat:@"%d", i + 1];
+        [scrollView addSubview:count];
+        
+        UILabel *direction = [[UILabel alloc] initWithFrame:CGRectMake(margin + 30, top, (self.view.frame.size.width - 2 * margin - 40), height)];
+        direction.numberOfLines = 0;
+        direction.text = [RARecipes directionsAtIndex:self.recipeIndex][i];
+        
+        [scrollView addSubview:direction];
+        
+        top += (height + margin);
+        
+    }
+    scrollView.contentSize = CGSizeMake(self.view.frame.size.width, top + margin);
     
 }
 
@@ -66,6 +103,15 @@ static CGFloat margin = 15;
     // Pass the selected object to the new view controller.
 }
 */
+
+- (CGFloat)heightForDirections:(NSString *)description {
+    
+    CGRect bounding = [description boundingRectWithSize: CGSizeMake(self.view.frame.size.width - 2 * margin - 40, CGFLOAT_MAX)
+                                                options: NSStringDrawingUsesLineFragmentOrigin
+                                             attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17]}
+                                                context:nil];
+    return bounding.size.height;
+}
 
 - (CGFloat)heightForDescription:(NSString *)description {
     CGRect bounding = [description boundingRectWithSize:CGSizeMake(self.view.frame.size.width - 2 * margin, CGFLOAT_MAX)
